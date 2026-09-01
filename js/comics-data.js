@@ -15,6 +15,36 @@ Example:
 */
 
 window.COMICS = [
+    {
+    issue: "027",
+    title: "The Endless Cycle",
+    date: "August 21, 2026",
+    image: "images/comics/issue-027.png"
+  },
+  {
+    issue: "026",
+    title: "Privacy is a Myth",
+    date: "August 20, 2026",
+    image: "images/comics/issue-026.png"
+  },
+  {
+    issue: "025",
+    title: "Background Noise",
+    date: "August 17, 2026",
+    image: "images/comics/issue-025.png"
+  },
+  {
+    issue: "024",
+    title: "Nobody Gave Me the Manual",
+    date: "August 11, 2026",
+    image: "images/comics/issue-024.png"
+  },
+  {
+    issue: "023",
+    title: "Not Today, Clothes",
+    date: "August 11, 2026",
+    image: "images/comics/issue-023.png"
+  },
   {
     issue: "022",
     title: "Sibling Bond",
