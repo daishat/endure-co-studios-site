@@ -13,8 +13,44 @@ Example:
   image: "images/comics/issue-024.png"
 }
 */
+ window.COMICS = [ 
+   {
+    issue: "033",
+    title: "Not the Nice Me Anymore",
+    date: "September 11, 2026",
+    image: "images/comics/issue-033.png"
+  },
+  {
+    issue: "032",
+    title: "Same Brain, Just Older",
+    date: "September 11, 2026",
+    image: "images/comics/issue-032.png"
+  },
+  {
+    issue: "031",
+    title: "Mom After Hours",
+    date: "September 10, 2026",
+    image: "images/comics/issue-031.png"
+  },
+  {
+    issue: "030",
+    title: "That’s Your Job, Mom",
+    date: "September 4, 2026",
+    image: "images/comics/issue-030.png"
+  },
+  {
+    issue: "029",
+    title: "Mom’s 2 A.M. Peace",
+    date: "September 3, 2026",
+    image: "images/comics/issue-029.png"
+  },
+  {
+    issue: "028",
+    title: "The Mail Truck",
+    date: "September 3, 2026",
+    image: "images/comics/issue-028.png"
+  },
 
-window.COMICS = [
     {
     issue: "027",
     title: "The Endless Cycle",
