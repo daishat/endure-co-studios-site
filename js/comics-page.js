@@ -5,8 +5,8 @@ function createComicCard(comic) {
   article.className = 'comic-entry';
 
   const imageMarkup = comic.image
-    ? `<img src="${comic.image}" alt="${comic.title} — Brain Dump Times Issue #${comic.issue}" loading="lazy">`
-    : `<div class="comic-image-placeholder">Upload Issue #${comic.issue} to<br><strong>images/comics/</strong><br>then add its filename in <strong>js/comics-data.js</strong></div>`;
+    ? `<a href="${comic.image}" aria-label="Open Issue #${comic.issue}"><img src="${comic.image}" alt="${comic.title} — Brain Dump Times Issue #${comic.issue}" loading="lazy"></a>`
+    : `<div class="comic-image-placeholder">Issue #${comic.issue} is not available yet.</div>`;
 
   article.innerHTML = `
     <div class="comic-image-wrap">
@@ -16,6 +16,7 @@ function createComicCard(comic) {
       <div class="issue">ISSUE #${comic.issue}</div>
       <h2>${comic.title}</h2>
       <div class="date">${comic.date}</div>
+      ${comic.image ? `<a class="btn primary" href="${comic.image}">Open Issue #${comic.issue}</a>` : ""}
     </div>
   `;
   return article;

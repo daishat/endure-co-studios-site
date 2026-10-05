@@ -7,15 +7,22 @@
 <link rel="apple-touch-icon" href="/images/site/endure-co-icon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Endure Co Studios</title>
+  <title>Endure Co Studios | Comics, Stories &amp; Creative Writing</title>
   <meta name="description" content="Endure Co Studios — comics, stories, games, books, creative services and original projects.">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="canonical" href="https://endurecostudios.com/">
+  <meta property="og:title" content="Endure Co Studios | Comics, Stories &amp; Creative Writing">
+  <meta property="og:description" content="Endure Co Studios — comics, stories, games, books, creative services and original projects.">
+  <meta property="og:url" content="https://endurecostudios.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://endurecostudios.com/images/site/hero-card.png">
 </head>
 <body>
 <header class="site-header">
   <div class="nav-wrap">
     <a class="brand" href="#home">Endure Co Studios</a>
-    <nav class="main-nav">
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="main-navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="brain-dump-times.html">Brain Dump Times</a>
       <a href="#stories">Stories</a>
@@ -32,6 +39,7 @@
   <div class="hero-shade"></div>
   <div class="container hero-grid">
     <div class="hero-copy">
+      <p class="eyebrow">ORIGINAL COMICS, STORIES &amp; CREATIVE WRITING</p>
       <h1>Endure Co Studios</h1>
       <p class="hero-tagline">
         Real life is ridiculous.<br>
@@ -46,8 +54,7 @@
       </p>
       <div class="button-row">
         <a class="btn primary" href="brain-dump-times.html">Read Brain Dump Times</a>
-        <a class="btn outline" href="#stories">📚 Explore My Stories</a>
-        <a class="btn gold" href="#contact">✍️ Work With Me</a>
+        <a class="btn outline" href="#portfolio">✍️ Work With Me</a>
       </div>
     </div>
     <img class="hero-image" src="images/site/hero-card.png" alt="Creative notebook and sketch">
@@ -85,12 +92,7 @@
       <article class="info-card">
         <h3>Letters to the Editor</h3>
         <p class="gold-text">Got a funny real-life story? Send it our way — selected stories may become Brain Dump Times comics.</p>
-        <form class="simple-form" action="mailto:endurecostudios@outlook.com" method="post" enctype="text/plain">
-          <label>Name<input type="text" name="name"></label>
-          <label>Email<input type="email" name="email"></label>
-          <label>Your Story<textarea name="story" rows="6"></textarea></label>
-          <button class="btn primary" type="submit">Submit Letter</button>
-        </form>
+        <div class="contact-options"><p>Email your story to <a href="mailto:endurecostudios@outlook.com?subject=Letter%20to%20the%20Editor">endurecostudios@outlook.com</a> with the subject “Letter to the Editor.”</p><p>Include your name and the story you’d like to share.</p><button class="btn primary copy-email" type="button">Copy Email Address</button><p class="copy-status" role="status"></p></div>
         <p class="form-note">Selected stories may become Brain Dump Times comics.</p>
       </article>
 
@@ -108,7 +110,7 @@
     learn, grow, and still become the people we want to be.
   </p>
 
-  <div class="hero-actions">
+  <div class="button-row">
     <a class="btn primary" href="blog/the-power-of-flawed-heroes.html">
       Read Latest Post
     </a>
@@ -125,8 +127,8 @@
 <section id="stories" class="stories-section">
   <div class="section-shade"></div>
   <div class="container compact relative">
-    <h2 class="center-title">Stories</h2>
-    <p class="center-sub red-text italic">Original fiction from my mind. Dive in.</p>
+    <h2 class="center-title">Books &amp; Stories</h2>
+    <p class="center-sub red-text italic">My writing and original characters. Preview what’s taking shape; new releases will be linked here when ready.</p>
 
    <div class="story-grid">
   <article class="story-card">
@@ -165,15 +167,15 @@
     <div class="service-grid">
       <article class="service-card">
       <img src="images/site/creative-blog-writing.png" alt="Creative & Blog Writing">
-        <div><h3>Creative & Blog Writing</h3><p>Engaging blog posts, articles, and creative pieces that connect with readers.</p></div>
+        <div><h3>Creative & Blog Writing</h3><p>Engaging blog posts, articles, and creative pieces that connect with readers.</p><p>For creators and businesses: writing shaped around your message and audience.</p><a class="sample-link" href="blog/the-power-of-flawed-heroes.html">Read a writing sample →</a></div>
       </article>
       <article class="service-card">
       <img src="images/site/comics-storytelling.png" alt="Comics & Storytelling">
-        <div><h3>Comics & Storytelling</h3><p>Original comics and visual narratives that bring stories to life panel by panel.</p></div>
+        <div><h3>Comics & Storytelling</h3><p>Original comics and visual narratives that bring stories to life panel by panel.</p><p>Story concepts and scripts for creators with an idea to share.</p><a class="sample-link" href="brain-dump-times.html">Browse my original comics →</a></div>
       </article>
       <article class="service-card">
         <img src="images/site/ghostwriting.png" alt="Ghostwriting">
-        <div><h3>Ghostwriting</h3><p>Your voice, your story — polished and professional. Nobody has to know.</p></div>
+        <div><h3>Ghostwriting</h3><p>Your voice, your story — polished and professional. Nobody has to know.</p><p>Personal essays and stories developed around your voice and experiences.</p><a class="sample-link" href="#contact">Discuss your writing project →</a></div>
       </article>
     </div>
     <div class="center"><a class="btn primary" href="#contact">✍️ Work With Me</a></div>
@@ -182,12 +184,12 @@
 
 <section class="projects-section">
   <div class="container compact">
-    <h2 class="center-title">Products I'm working on</h2>
+    <h2 class="center-title">Projects in Development</h2>
     <p class="center-sub gold-text">A few creative ideas currently taking shape behind the scenes.</p>
     <div class="project-grid">
-      <article class="project-card"><span>IN DEVELOPMENT</span><h3>Don’t Let Her Know You Know</h3><p>An original story-driven game taking shape at Endure Co Studios.</p></article>
-      <article class="project-card"><span>IN DEVELOPMENT</span><h3>Brain Dump App</h3><p>A place to unload your thoughts, organize to-dos, and make room for what matters.</p></article>
-      <article class="project-card"><span>IN PROGRESS</span><h3>Books &amp; Original Stories</h3><p>Fiction, children’s books, and reflective writing from the world of Endure Co Studios.</p><div class="button-row"><a class="btn primary" href="#stories">Explore the Books</a></div></article>
+      <article class="project-card"><span>IN DEVELOPMENT</span><p class="eyebrow">GAMES</p><h3>Don’t Let Her Know You Know</h3><p>An original story-driven game taking shape at Endure Co Studios.</p></article>
+      <article class="project-card"><span>IN DEVELOPMENT</span><p class="eyebrow">APPS</p><h3>Brain Dump</h3><p>A place to unload your thoughts, organize to-dos, and make room for what matters.</p></article>
+      <article class="project-card"><span>IN PROGRESS</span><h3>Books &amp; Stories</h3><p>My writing and original characters, from fiction and children’s books to reflective stories.</p><div class="button-row"><a class="btn primary" href="#stories">Explore the Books</a></div></article>
     </div>
   </div>
 </section>
@@ -210,18 +212,14 @@
   <div class="contact-wrap">
     <h2 class="center-title">Let's Connect</h2>
     <p class="center-sub gold-text">Have a project in mind? Want to collaborate? Just want to say hi? Drop a message.</p>
-    <form class="simple-form" action="mailto:endurecostudios@outlook.com" method="post" enctype="text/plain">
-      <label>Name<input type="text" name="name" required></label>
-      <label>Email<input type="email" name="email" required></label>
-      <label>Message<textarea name="message" rows="6" required></textarea></label>
-      <button class="btn primary" type="submit">Send Message</button>
-    </form>
+    <div class="contact-options"><p>Contact D’Aisha at <a href="mailto:endurecostudios@outlook.com?subject=Creative%20Project%20Inquiry">endurecostudios@outlook.com</a>.</p><p>Tell me about your project, the help you need, and your timeline. Copy the address into the email service you use.</p><button class="btn primary copy-email" type="button">Copy Email Address</button><p class="copy-status" role="status"></p></div>
     <p class="center gold-text email-line">endurecostudios@outlook.com</p>
   </div>
 </section>
 </main>
 
 <footer class="site-footer">© 2026 Endure Co Studios. Creating stories worth remembering.</footer>
+  <script src="js/main.js"></script>
   <script src="js/comics-data.js"></script>
 <script src="js/homepage-comic.js"></script>
 </body>
