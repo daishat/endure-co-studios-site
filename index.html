@@ -28,6 +28,7 @@
       <a href="#stories">Stories</a>
      <a href="blog.html">Blog</a>
    <a href="#portfolio">Creative Services</a>
+     <a href="#voice">D’Aisha’s Voice</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -92,7 +93,15 @@
       <article class="info-card">
         <h3>Letters to the Editor</h3>
         <p class="gold-text">Got a funny real-life story? Send it our way — selected stories may become Brain Dump Times comics.</p>
-        <div class="contact-options"><p>Email your story to <a href="mailto:endurecostudios@outlook.com?subject=Letter%20to%20the%20Editor">endurecostudios@outlook.com</a> with the subject “Letter to the Editor.”</p><p>Include your name and the story you’d like to share.</p><button class="btn primary copy-email" type="button">Copy Email Address</button><p class="copy-status" role="status"></p></div>
+        <div class="contact-options">
+  <p>Have a story to share?
+    <a href="mailto:founder@endurecostudios.com?subject=Letter%20to%20the%20Editor">
+      Email founder@endurecostudios.com
+    </a>
+    with the subject “Letter to the Editor.”
+  </p>
+  <p>Include your story, your preferred credit name, and your social handle if you’d like it included.</p>
+</div>
         <p class="form-note">Selected stories may become Brain Dump Times comics.</p>
       </article>
 
@@ -207,13 +216,59 @@
     </div>
   </div>
 </section>
-
+<section id="voice" class="services-section">
+  <div class="container compact">
+    <h2 class="center-title">D’Aisha’s Voice</h2>
+    <p class="center-sub gold-text">
+      The voice acting brand of Endure Co Studios.
+      Discover D’Aisha’s voice work on its dedicated website.
+    </p>
+    <div class="center">
+      <a class="btn primary" href="https://daishasvoice.com">
+        Visit D’Aisha’s Voice
+      </a>
+    </div>
+  </div>
+</section>
 <section id="contact" class="contact-section">
   <div class="contact-wrap">
     <h2 class="center-title">Let's Connect</h2>
-    <p class="center-sub gold-text">Have a project in mind? Want to collaborate? Just want to say hi? Drop a message.</p>
-    <div class="contact-options"><p>Contact D’Aisha at <a href="mailto:endurecostudios@outlook.com?subject=Creative%20Project%20Inquiry">endurecostudios@outlook.com</a>.</p><p>Tell me about your project, the help you need, and your timeline. Copy the address into the email service you use.</p><button class="btn primary copy-email" type="button">Copy Email Address</button><p class="copy-status" role="status"></p></div>
-    <p class="center gold-text email-line">endurecostudios@outlook.com</p>
+    <p class="center-sub gold-text">
+      Have a project in mind? Want to collaborate?
+      Just want to say hi? Drop a message.
+    </p>
+
+    <form action="https://formsubmit.co/founder@endurecostudios.com"
+          method="POST"
+          style="display:grid; gap:16px; text-align:left;">
+      <input type="hidden" name="_subject"
+             value="New Endure Co Studios Website Message">
+
+      <label for="contact-name">Your name</label>
+      <input id="contact-name" type="text" name="name"
+             autocomplete="name" required
+             style="width:100%; box-sizing:border-box; padding:12px; font:inherit;">
+
+      <label for="contact-email">Your email</label>
+      <input id="contact-email" type="email" name="email"
+             autocomplete="email" required
+             style="width:100%; box-sizing:border-box; padding:12px; font:inherit;">
+
+      <label for="contact-message">Your message</label>
+      <textarea id="contact-message" name="message" rows="6"
+                required
+                placeholder="Tell me about your project, the help you need, and your timeline."
+                style="width:100%; box-sizing:border-box; padding:12px; font:inherit; resize:vertical;"></textarea>
+
+      <button class="btn primary" type="submit">Send Message</button>
+    </form>
+
+    <p class="center gold-text email-line">
+      Or email
+      <a href="mailto:founder@endurecostudios.com">
+        founder@endurecostudios.com
+      </a>
+    </p>
   </div>
 </section>
 </main>
