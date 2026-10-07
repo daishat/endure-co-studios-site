@@ -14,6 +14,42 @@ Example:
 }
 */
  window.COMICS = [ 
+     {
+    issue: "039",
+    title: "My Circle Rides for Me",
+    date: "October 3, 2026",
+    image: "images/comics/issue-039.png"
+  },
+  {
+    issue: "038",
+    title: "Emotional Support Honey: A Decade of Sleep",
+    date: "September 20, 2026",
+    image: "images/comics/issue-038.png"
+  },
+  {
+    issue: "037",
+    title: "Tired but grateful motherhood cuddle",
+    date: "September 20, 2026",
+    image: "images/comics/issue-037.png"
+  },
+  {
+    issue: "036",
+    title: "Would I Recognize Her?",
+    date: "September 20, 2026",
+    image: "images/comics/issue-036.png"
+  },
+  {
+    issue: "035",
+    title: "The Dinner Dice Dilemma",
+    date: "September 16, 2026",
+    image: "images/comics/issue-035.png"
+  },
+  {
+    issue: "034",
+    title: "The Tiny Voice Always Wins",
+    date: "September 14, 2026",
+    image: "images/comics/issue-034.png"
+  },
    {
     issue: "033",
     title: "Not the Nice Me Anymore",
