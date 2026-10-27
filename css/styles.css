@@ -156,3 +156,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
  .button-row .btn{max-width:100%}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* Studio expansion: retain the current palette pending color approval. */
+.hero-grid{padding:54px 0}.feature-cover{max-height:560px;width:auto;max-width:100%;object-fit:contain;justify-self:center}.studio-line{margin-top:26px}.project-status,.availability{color:var(--gold);font-family:Inter,Arial,sans-serif}.route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.route-card{text-decoration:none;min-height:0}.route-card h2{font-size:20px}.story-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.cover-wrap img{height:300px;object-fit:contain}.featured-comic img{height:auto;max-height:600px;object-fit:contain}.story-body p,.project-card p,.service-card p{font-size:15px;line-height:1.6}.story-body h3{font-size:18px}.asset-placeholder{padding:35px 16px;background:#151515;color:#cfcfcf;text-align:center;margin-bottom:20px;border:1px dashed #777}.shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.product{display:grid;grid-template-columns:120px 1fr;gap:20px;min-height:0}.product img{height:auto;width:120px}.product p{line-height:1.6}.reading{max-width:760px;font-size:17px;line-height:1.75}.reading h1{font-size:36px}.reading .info-card{margin:24px 0;min-height:0}.prose{margin:30px 0}.prose p{margin-bottom:1.3em}.content-note{padding:16px;border-left:3px solid var(--gold);background:#151515}.hero-tagline,.red-text{color:var(--gold)}.contact-section input,.contact-section textarea{background:#fff;color:#151515}section[id]{scroll-margin-top:80px}
+@media(max-width:900px){.route-grid,.shop-grid{grid-template-columns:1fr}.story-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-grid{padding:0}.feature-cover{max-height:440px}}
+@media(max-width:600px){.story-grid{grid-template-columns:1fr}.product{grid-template-columns:1fr}.product img{width:160px}.reading h1{font-size:30px}.reading{font-size:17px}.main-nav{max-height:70vh;overflow-y:auto}}
+
+.skip-link{position:absolute;left:12px;top:-100px;z-index:100;background:#fff;color:#111;padding:12px}.skip-link:focus{top:12px}
