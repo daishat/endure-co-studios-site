@@ -8,7 +8,7 @@ if (latestComic) {
   const date = document.getElementById("featured-comic-date");
 
   if (image) {
-    image.src = latestComic.image;
+    image.src = "/" + latestComic.image.replace(/^\//, "");
     image.alt = `${latestComic.title} - Brain Dump Times Issue ${latestComic.issue}`;
   }
 
@@ -30,3 +30,4 @@ if (latestComic) {
       : "";
   }
 }
+
