@@ -55,14 +55,17 @@
       Have a project in mind? Want to collaborate?
       Just want to say hi? Drop a message.
     </p>
-<form action="https://formsubmit.co/founder@endurecostudios.com" method="POST" style="display:grid; gap:16px; text-align:left;">
+<form id="studio-contact-form" action="https://formsubmit.co/founder@endurecostudios.com" method="POST" style="display:grid; gap:16px; text-align:left;">
 <input name="_subject" type="hidden" value="New Endure Co Studios Website Message"/>
+<input type="hidden" name="_captcha" value="true"/>
+<input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" style="display:none"/>
+<input type="hidden" name="_blacklist" value="guaranteed crypto profits,buy dofollow backlinks,100% guaranteed investment returns"/>
 <label for="contact-name">Your name</label>
-<input autocomplete="name" id="contact-name" name="name" required="" style="width:100%; box-sizing:border-box; padding:12px; font:inherit;" type="text"/>
+<input autocomplete="name" id="contact-name" name="name" maxlength="100" pattern=".*\S.*" required="" style="width:100%; box-sizing:border-box; padding:12px; font:inherit;" type="text"/>
 <label for="contact-email">Your email</label>
-<input autocomplete="email" id="contact-email" name="email" required="" style="width:100%; box-sizing:border-box; padding:12px; font:inherit;" type="email"/>
+<input autocomplete="email" id="contact-email" name="email" maxlength="254" required="" style="width:100%; box-sizing:border-box; padding:12px; font:inherit;" type="email"/>
 <label for="contact-message">Your message</label>
-<textarea id="contact-message" name="message" placeholder="Tell me about your role, project, collaboration, or question." required="" rows="6" style="width:100%; box-sizing:border-box; padding:12px; font:inherit; resize:vertical;"></textarea>
+<textarea id="contact-message" name="message" minlength="20" maxlength="5000" placeholder="Tell me about your role, project, collaboration, or question." required="" rows="6" style="width:100%; box-sizing:border-box; padding:12px; font:inherit; resize:vertical;"></textarea>
 <button class="btn primary" type="submit">Send Message</button>
 </form>
 <p class="center gold-text email-line">
@@ -75,5 +78,5 @@
 </section></main>
 <footer class="site-footer">© 2026 Endure Co Studios. Creating stories worth remembering.<p>Voice acting and original narrated videos in development for my website and social channels. <a href="https://daishasvoice.com">Explore D’Aisha’s Voice ↗</a></p></footer>
 <script src="js/main.js"></script>
-<script defer="" src="/js/comics-data.js"></script><script defer="" src="/js/slideshow.js"></script></body>
+<script defer="" src="/js/comics-data.js"></script><script defer="" src="/js/slideshow.js"></script><script src="/js/contact-form.js?v=20261028-1" defer></script></body>
 </html>
