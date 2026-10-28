@@ -1,0 +1,33 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('fs');const vm=require('vm');const path=require('path');
+const {safeLocation,safeReferrer,validReceipt}=require('../js/analytics.js');
+const source=fs.readFileSync(path.join(__dirname,'../js/analytics.js'),'utf8');
+test('removes email, message, receipt and fragment from URLs',()=>assert.equal(safeLocation('https://endurecostudios.com/contact-thanks.html?email=person@example.com&message=private&receipt=secret#private'),'https://endurecostudios.com/contact-thanks.html'));
+test('retains safe campaign attribution labels',()=>assert.equal(safeLocation('https://endurecostudios.com/?utm_source=instagram&utm_medium=social&utm_campaign=aware_launch&debug=1'),'https://endurecostudios.com/?utm_source=instagram&utm_medium=social&utm_campaign=aware_launch'));
+test('drops personal data disguised as campaign values',()=>assert.equal(safeLocation('https://endurecostudios.com/?utm_source=person%40example.com&utm_content=My%20private%20message'),'https://endurecostudios.com/'));
+test('referrer contains origin only',()=>assert.equal(safeReferrer('https://substack.com/reader/person@example.com?token=secret'),'https://substack.com/'));
+test('invalid referrer is blank',()=>assert.equal(safeReferrer('not a url'),''));
+const token='a'.repeat(32);test('receipt requires matching recent token',()=>{assert(validReceipt({token,time:1000},token,2000));assert(!validReceipt({token,time:1000},'b'.repeat(32),2000));assert(!validReceipt({token,time:1000},token,2000000));assert(!validReceipt(null,token,2000));assert(!validReceipt({token,time:3000},token,2000))});
+function fixture({id='G-TEST123',choice=null,gpc=false,href='https://endurecostudios.com/',pending=null,storageFails=false}={}) {
+ const events={},winEvents={},appended=[],log=[];const memory=new Map();if(choice)memory.set('endure.analytics-consent.v1',JSON.stringify({choice,time:Date.now()}));if(pending)memory.set('endure.contact-receipt.v1',JSON.stringify(pending));
+ const storage={getItem:k=>memory.get(k)||null,setItem:(k,v)=>memory.set(k,v),removeItem:k=>memory.delete(k)};
+ const buttons={granted:{dataset:{choice:'granted'},addEventListener(k,f){this[k]=f},focus(){}},denied:{dataset:{choice:'denied'},addEventListener(k,f){this[k]=f},focus(){}}};
+ const banner={hidden:true,setAttribute(){},querySelectorAll(){return Object.values(buttons)},querySelector(q){return q.includes('granted')?buttons.granted:buttons.denied}};
+ const settings={addEventListener(k,f){this[k]=f}};const next={value:''};const form={elements:{namedItem:()=>next}};
+ const doc={cookie:'',title:'Studio',referrer:'https://substack.com/private?email=secret@example.com',visibilityState:'visible',head:{append:x=>appended.push(x)},body:{append(){}},createElement:t=>t==='section'?banner:{},querySelector:q=>q==='[data-analytics-settings]'?settings:null,querySelectorAll:()=>[],getElementById:()=>form,addEventListener:(k,f)=>events[k]=f};
+ const loc=new URL(href);loc.reload=()=>log.push('reload');const win={STUDIO_ANALYTICS_ID:id,dataLayer:[],localStorage:storage,sessionStorage:storage,addEventListener:(k,f)=>winEvents[k]=f};
+ if(storageFails)Object.defineProperty(win,'localStorage',{get(){throw Error('blocked')}});
+ vm.runInNewContext(source,{window:win,document:doc,navigator:{globalPrivacyControl:gpc},location:loc,URL,Date,Set,Map,Uint8Array,crypto:require('node:crypto').webcrypto,performance:{now:()=>1000}});
+ return {win,doc,events,banner,buttons,appended,memory,settings,next,log};
+}
+test('empty ID leaves draft inactive',()=>{const f=fixture({id:''});assert.equal(f.appended.length,0);assert.equal(f.win.dataLayer.length,0)});
+test('no analytics request before choice',()=>{const f=fixture();assert.equal(f.appended.length,0);assert.equal(f.win.dataLayer.length,0);assert.equal(f.banner.hidden,false)});
+test('reject never loads Google',()=>{const f=fixture();f.buttons.denied.click();assert.equal(f.appended.length,0);assert.equal(f.win.dataLayer.length,0)});
+test('accept loads one tag with advertising disabled',()=>{const f=fixture();f.buttons.granted.click();f.buttons.granted.click();assert.equal(f.appended.length,1);const config=f.win.dataLayer.find(x=>x[0]==='config')[2];assert.equal(config.allow_google_signals,false);assert.equal(config.send_page_view,false);assert.equal(f.win.dataLayer.filter(x=>x[1]==='page_view').length,1)});
+test('stored rejection can be changed to consent',()=>{const f=fixture({choice:'denied'});f.settings.click();f.buttons.granted.click();assert.equal(f.win['ga-disable-G-TEST123'],false);assert.equal(f.appended.length,1)});
+test('GPC always prevents Google loading',()=>{const f=fixture({choice:'granted',gpc:true});f.settings.click();assert.equal(f.buttons.granted.disabled,true);f.buttons.granted.click();assert.equal(f.appended.length,0)});
+test('storage blocked does not crash or load Google',()=>assert.equal(fixture({storageFails:true}).appended.length,0));
+test('withdrawal disables future measurement and reloads',()=>{const f=fixture({choice:'granted'});f.settings.click();f.buttons.denied.click();assert.equal(f.win['ga-disable-G-TEST123'],true);assert.deepEqual(f.log,['reload'])});
+test('ordinary thank-you page visit does not count a lead',()=>{const f=fixture({choice:'granted',href:'https://endurecostudios.com/contact-thanks.html'});assert(!f.win.dataLayer.some(x=>x[1]==='generate_lead'))});
+test('matching return counts exactly one lead without token or contact content',()=>{const f=fixture({choice:'granted',href:'https://endurecostudios.com/contact-thanks.html?receipt='+token,pending:{token,time:Date.now()}});const leads=f.win.dataLayer.filter(x=>x[1]==='generate_lead');assert.equal(leads.length,1);assert(!JSON.stringify(leads).includes(token));assert(!JSON.stringify(leads).includes('@'));assert(!f.memory.has('endure.contact-receipt.v1'))});
+test('attempt event has no contact details and prepares receipt return',()=>{const f=fixture({choice:'granted'});f.events['studio:contact-valid']();const e=f.win.dataLayer.find(x=>x[1]==='contact_submit_attempt');assert(e);assert.equal(e[2].form_id,'studio_contact');assert(f.next.value.includes('/contact-thanks.html?receipt='));assert(!JSON.stringify(e).includes('email'))});
+test('no-consent valid form does not store receipt or send attempt',()=>{const f=fixture();f.events['studio:contact-valid']();assert(!f.memory.has('endure.contact-receipt.v1'));assert.equal(f.win.dataLayer.length,0)});

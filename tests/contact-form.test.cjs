@@ -17,7 +17,7 @@ test('trims input',()=>assert.equal(validateContact({...genuine,name:'  Jane  '}
 function setup(){
  const field=value=>({value,custom:'',events:{},setCustomValidity(x){this.custom=x},addEventListener(k,f){this.events[k]=f},focus(){this.focused=true},reportValidity(){this.reported=true}});
  const fields={name:field(genuine.name),email:field(genuine.email),message:field(genuine.message),_honey:field('')};const form={elements:{namedItem:k=>fields[k]},addEventListener(k,f){this[k]=f}};
- vm.runInNewContext(fs.readFileSync(require('path').join(__dirname, '../js/contact-form.js'),'utf8'),{document:{getElementById:()=>form}});return {fields,form};
+ vm.runInNewContext(fs.readFileSync(require('path').join(__dirname, '../js/contact-form.js'),'utf8'),{document:{getElementById:()=>form,dispatchEvent(){}},Event:class {constructor(type){this.type=type}}});return {fields,form};
 }
 test('genuine submission retains native POST',()=>{const {form}=setup();let blocked=false;form.submit({preventDefault(){blocked=true}});assert.equal(blocked,false)});
 test('invalid message is stopped, focused, and explained',()=>{const {form,fields}=setup();fields.message.value='hi';let blocked=false;form.submit({preventDefault(){blocked=true}});assert(blocked);assert(fields.message.custom);assert(fields.message.focused);fields.message.events.input();assert.equal(fields.message.custom,'')});

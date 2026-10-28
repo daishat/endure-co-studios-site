@@ -53,6 +53,7 @@
       event.preventDefault(); firstInvalid.focus(); firstInvalid.reportValidity(); return;
     }
     Object.entries(result.values).forEach(([key, value]) => { fields[key].value = value; });
+    document.dispatchEvent(new Event('studio:contact-valid'));
     // Keep a regular HTML POST: FormSubmit's hosted CAPTCHA remains in the flow.
   });
 })();
