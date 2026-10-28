@@ -5,3 +5,10 @@
 
 /* The site header carries the brand; this row selects homepage slides. */
 #endure-slides .slide-navigation{padding:8px 5%;justify-content:center;background:#0d0e10}#endure-slides .slide-navigation nav{justify-content:center}#endure-slides .slide-navigation button{cursor:pointer}#endure-slides .slide-controls[hidden]{display:none}#endure-slides .slide-navigation button[aria-current="true"]{color:#e0be75;border-bottom:2px solid #e0be75}#endure-slides .slide{scroll-margin-top:100px}#endure-slides .stage{touch-action:pan-y}#endure-slides .slide .art{height:auto}#endure-slides .book-pair img{height:auto}#endure-slides button:focus-visible,#endure-slides a:focus-visible{outline:3px solid #fff;outline-offset:4px}@media(prefers-reduced-motion:reduce){#endure-slides *{scroll-behavior:auto}}
+
+/* Keep the full poster legible instead of cropping it as a background. */
+#endure-slides .aware{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(240px,.9fr);gap:45px;align-items:center;padding:35px 7%}
+#endure-slides .aware .copy{width:auto;grid-column:1;grid-row:1}
+#endure-slides .aware img{position:static;grid-column:2;grid-row:1;width:100%;height:auto;max-height:480px;object-fit:contain;opacity:1;justify-self:center}
+#endure-slides .aware:after{display:none}
+@media(max-width:650px){#endure-slides .aware{grid-template-columns:1fr;gap:25px;padding:30px 7%}#endure-slides .aware .copy{grid-column:1;grid-row:1}#endure-slides .aware img{grid-column:1;grid-row:2;width:auto;max-width:100%;height:auto;max-height:410px;opacity:1}}
