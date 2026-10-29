@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lifexp",
+    "name": "LifeXP",
+    "category": "Apps & Tools",
+    "kind": "App",
+    "path": "apps/life-xp",
+    "image": "lifexp-cartoon-v2.webp",
+    "status": "Published prototype \u00b7 Improving",
+    "desc": "Practice real-life choices through short, story-driven scenarios about renting, budgeting, and everyday trade-offs."
+  },
+  {
+    "id": "brain_dump",
+    "name": "Brain Dump",
+    "category": "Apps & Tools",
+    "kind": "App",
+    "path": "apps/brain-dump",
+    "image": "brain-dump-purple-v2.webp",
+    "status": "Alpha \u00b7 Testing & launch preparation",
+    "desc": "Capture thoughts, journal, manage tasks, and review suggestions that help organize mental clutter."
+  },
+  {
+    "id": "monster_daycare",
+    "name": "Monster Daycare",
+    "category": "Games",
+    "kind": "Game",
+    "path": "games/monster-daycare",
+    "image": "monster-daycare-concept.webp",
+    "status": "Active development",
+    "desc": "Care for supernatural infants in a character-driven management game full of personalities, choices, and daycare chaos."
+  }
+]
